@@ -36,12 +36,12 @@
 
 /** Main Styling (for 1080p) **/
 .body {
-  background-color: #e5e5e5;
+  background-color: #f0f0f0;
   font-family: 'OpenSans_Regular', Arial;
 }
 
 .top-wrapper {
-  background-color: #fff;
+  background: #717171 url('../images/background_tile.png');
 }
 
 .fullscreen .top-wrapper {
@@ -50,7 +50,7 @@
 }
 
 .header {
-  color: #141414;
+  color: #fff;
   text-align: center;
 }
 
@@ -61,10 +61,11 @@
 .header__logo {
   width: 100%;
   height: 75px;
-  margin: 0;
-  background: url('../images/next-logo.png') no-repeat;
+  margin: 10px 0 0;
+  background: url('../images/logo.png') no-repeat;
   background-position: center;
   background-size: contain;
+  float: left;
 }
 
 .header__lowbandwidth {
@@ -173,15 +174,17 @@
 
 .cta--side,
 .promo--side {
-  background-color: #2e2e2e;
+  background-color: #8017e1;
+  /* background-color: #8017e1; */
 }
 
 .cta__button {
   color: #fff;
-  background-color: #161616;
+  background-color: #39006b;
   border: 0;
   font-family: Arial;
   font-size: 28px;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 0;
 }
@@ -199,11 +202,7 @@
 .cta__button:hover,
 .cta__button:active,
 .focusable.cta__button:focus {
-  background-color: #1a6461;
-}
-
-.cta__button.highlight {
-  background-color: #1a6461;
+  background-color: #8017e1;
 }
 
 .fullscreen .cta--side .cta__button {
@@ -239,7 +238,7 @@
   --cta-bgX: 0%;
   --cta-bgY: 0%;
 
-  display: none;
+  display: block;
   margin: 0 auto;
   margin-bottom: 25px;
   width: 60px;
@@ -508,27 +507,27 @@
 }
 
 .timeline-progress-hover {
-  background-color: #194c48;
+  background-color: #8017e1;
 }
 
 .timeline-progress {
-  background-color: #1a6461;
+  background-color: #39006b;
 }
 
 .timeline-chapters--seen {
-  color: #1a6461;
+  color: #bfbfbf;
 }
 
 .timeline-contrast .timeline-chapters__label {
-  color: #fff;
+  color: #2e2e2e;
 }
 
 .timeline-contrast {
-  background-color: #1a6461;
+  background-color: #4095ca;
 }
 
 .timeline-contrast-hover {
-  background-color: #194c48;
+  background-color: #407292;
 }
 
 .timeline-chapters__chapter,
@@ -546,7 +545,7 @@
 }
 
 .timeline-volume__level {
-  background-color: #1a6461;
+  background-color: #39006b;
   border-radius: 5px;
 }
 
@@ -680,7 +679,7 @@
 
 .footer {
   color: #3d3d3d;
-  background-color: #e5e5e5;
+  background-color: #f0f0f0;
   font-size: 14px;
 }
 
@@ -697,7 +696,7 @@
 }
 
 .footer__link {
-  color: #4e4e4e;
+  color: #717171;
   text-decoration: none;
 }
 
