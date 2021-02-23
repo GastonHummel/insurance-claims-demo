@@ -360,22 +360,22 @@
       </footer>
     </div>
     <div id="cvChatContainer" class="chat-container"></div>
-    <script src="./js/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./js/modernizr-custom.js"></script>
-    <script src="./js/settings.js"></script>
-    <script src="./js/landing-page.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/modernizr-custom.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/landing-page.js"></script>
     <!-- Chatbot integration -->
-    <script src="./js/slick.min.js"></script>
-    <script src="./js/socket.io.js"></script>
-    <script src="./js/converse-chat.js"></script>
-    <script src="./js/bluebird.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+    <script src="https://webchat-converse-snd-iad.ces.engageonechat.com/js/converse-chat.js"></script>
+    <script src="https://cdn.jsdelivr.net/bluebird/latest/bluebird.min.js"></script>
     <script type="text/javascript">
       $(function () {
         var options = {
           placeholder: 'Type a message...',
           host: 'https://webchat-converse-snd-iad.ces.engageonechat.com',
           converseHost: 'https://converse.ces.engageonechat.com',
-          serverUserImage: './images/eo-square-mark.png',
+          serverUserImage: 'https://converseui.ces.engageonechat.com/public/img/eo-square-mark.png',
           container: '#cvChatContainer',
           showToolbar: true,
           reConnectDelay: 10000,
@@ -396,5 +396,28 @@
         webClient.show();
       });
     </script>
+
+    <!--
+        Uncomment the section below and update the "gaTrackingCode" variable to enable google analytics.
+        If you're using a different analytics provider or do not require analytics you can remove this section.
+    -->
+    <!-- <script>
+        var gaTrackingCode = "";
+
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', gaTrackingCode, 'auto');
+        ga('send', 'pageview');
+    </script> -->
   </body>
 </html>
