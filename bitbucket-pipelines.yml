@@ -1,0 +1,37 @@
+image: node:latest
+
+clone:
+    depth: 50
+
+pipelines:
+    custom:
+        "Black Duck":
+            - step:
+                  image:
+                      name: registry.gitlab.com/preciselydata/engageone/communicate/docker/blackduck
+                      username: $CI_REGISTRY_USER
+                      password: $CI_REGISTRY_TOKEN
+                  script:
+                      - bash <(curl -s -L https://detect.synopsys.com/detect.sh) --blackduck.url=$BLACKDUCK_URL --blackduck.api.token=$BLACKDUCK_API_TOKEN --detect.project.name=\"$BLACKDUCK_PROJECT_NAME\" --detect.project.version.name=\"$BLACKDUCK_DEVELOP_VERSION\" --detect.detector.search.continue=true --detect.detector.buildless=true --detect.detector.search.depth=5  --detect.npm.include.dev.dependencies=false
+    branches:
+        master:
+            - step:
+                script:
+                    - npm install && npm test
+            - step:
+                  name: Whitesource Scan
+                  image: pbeovdev/eov_security_scanner:latest
+                  script:
+                      - envsubst < .whitesource.conf > /tmp/whitesource.conf
+                      - java -jar /wss-unified-agent.jar -c /tmp/whitesource.conf
+            - step:
+                  image:
+                      name: registry.gitlab.com/preciselydata/engageone/communicate/docker/blackduck
+                      username: $CI_REGISTRY_USER
+                      password: $CI_REGISTRY_TOKEN
+                  script:
+                      - bash <(curl -s -L https://detect.synopsys.com/detect.sh) --blackduck.url=$BLACKDUCK_URL --blackduck.api.token=$BLACKDUCK_API_TOKEN --detect.project.name=\"$BLACKDUCK_PROJECT_NAME\" --detect.project.version.name=\"$BLACKDUCK_MASTER_VERSION\" --detect.detector.search.continue=true --detect.detector.buildless=true --detect.detector.search.depth=5  --detect.npm.include.dev.dependencies=false
+        develop:
+            - step:
+                script:
+                    - npm install && npm test
